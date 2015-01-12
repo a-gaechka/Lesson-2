@@ -4,36 +4,30 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $date=array();
-//Заполняем массив случайными числами:
 for ($i = 0; $i < 5; $i++){
     mt_srand(time());
     $date[$i]=rand(1,time());
 }
 
-// Выводим содержимое массива: 
-print_r($date); 
+$mind=array();
+for($i = 0; $i < 5; $i++){
+    $mind[$i]=date('d', $date[$i]);
+}
+$minday=min($mind);
+echo 'Наименьший день'.' '.$minday;
 echo "<br />";
 
-//наименьший день
-$mind= min($date);
-echo 'Наименьший день'.' '.$mind=date('d');
+
+$maxm=array();
+for($i = 0; $i < 5; $i++){
+    $maxm[$i]=date('m', $date[$i]);
+}
+$maxm=max($mind);
+echo 'Наибольший месяц'.' '.$maxm;
 echo "<br />";
 
-//наибольший месяц
-$maxm= max($date);
-echo 'Наибольший месяц'.' '.$maxm=date('m');
-echo "<br />";
-
-//Сортировка массива по возрастанию дат
 array_multisort($date);
-echo 'Сортировка массива по возрастанию дат';
-echo "<br />";
-print_r($date); 
-echo "<br />";
-
 $selected=array_slice($date,-1, 1); 
-echo 'Последний элемент массива'.' ';
-print_r($selected);
 echo "<br />";
 
 echo $selected=date('d.m.Y H:i:s') ;
