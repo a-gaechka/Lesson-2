@@ -22,7 +22,7 @@ $maxm=array();
 for($i = 0; $i < 5; $i++){
     $maxm[$i]=date('m', $date[$i]);
 }
-$maxm=max($mind);
+$maxm=max($maxm);
 echo 'Наибольший месяц'.' '.$maxm;
 echo "<br />";
 
